@@ -1,2 +1,32 @@
 # DBMS_Final
-DBMS final project
+DBMS final project : Movie forum
+## Entity List
+- Movie : 紀錄電影資訊
+  - **name**
+  - Rating (分級)
+  - Category
+    - 18+
+    - 15+
+    - 12+
+    - 6+
+    - 0+
+  - World_Box
+  - release_date
+- Production_company : 紀錄製片商資訊
+  - **name**
+  - location
+  - founded
+- User : 使用者資訊
+  - **id**
+  - name
+  - Sex
+- Platform : 觀影平台資訊
+  - **name**
+  - official_web
+  - Category
+    - theater
+    - streamer   
+- Comment
+  - **id**
+  - Title
+  - Content
