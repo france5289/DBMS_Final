@@ -10,8 +10,9 @@ DBMS final project : Movie forum
     - 12+
     - 6+
     - 0+
-  - World_Box
-  - release_date
+  - Tomato_score
+  - IMDB_score
+  - Box
 - Production_company : 紀錄製片商資訊
   - **name**
   - location
