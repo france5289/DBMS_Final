@@ -14,7 +14,7 @@ DBMS final project : Movie forum
   - Box
 - Producer : 紀錄製片商資訊
   - **name**
-  - addr
+  - country
   - founded_year
 - User : 使用者資訊
   - **id**
@@ -28,6 +28,5 @@ DBMS final project : Movie forum
     - streamer   
 - Director
   - **name**
-  - BDate
   - Sex
   - Age
