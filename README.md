@@ -29,4 +29,4 @@ DBMS final project : Movie forum
 - Director
   - **name**
   - Sex
-  - Age
+  - Birth_Date
