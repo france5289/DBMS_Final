@@ -2,7 +2,7 @@
 DBMS final project : Movie forum
 ## Entity List
 - Movie : 紀錄電影資訊
-  - **name**
+  - **Movie_name**
   - Rating (分級)
     - 18+
     - 15+
@@ -11,22 +11,22 @@ DBMS final project : Movie forum
     - 0+
   - Tomato_score
   - IMDB_score
-  - Box
+  - World_Box
 - Producer : 紀錄製片商資訊
-  - **name**
-  - country
-  - founded_year
+  - **PName**
+  - Country
+  - Founded
 - User : 使用者資訊
   - **id**
-  - level
+  - BDate
   - Sex
 - Platform : 觀影平台資訊
-  - **name**
+  - **Plat_name**
   - official_web
   - Category
     - theater
     - streamer   
 - Director
-  - **name**
+  - **DName**
   - Sex
-  - Birth_Date
+  - BDate
