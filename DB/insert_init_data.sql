@@ -5,14 +5,16 @@ INSERT INTO Movie (
     Rating,
     Tomato_score,
     IMDB_score,
-    World_Box
+    World_Box,
+    movie_image
   )
 VALUES (
     '1917',
     'PG-12',
     89,
     8.3,
-    95000000
+    95000000,
+    'https://m.media-amazon.com/images/M/MV5BOTdmNTFjNDEtNzg0My00ZjkxLTg1ZDAtZTdkMDc2ZmFiNWQ1XkEyXkFqcGdeQXVyNTAzNzgwNTg@._V1_SY1000_CR0,0,631,1000_AL_.jpg'
   );
 
 INSERT INTO Movie (
@@ -20,14 +22,16 @@ INSERT INTO Movie (
     Rating,
     Tomato_score,
     IMDB_score,
-    World_Box
+    World_Box,
+    movie_image
   )
 VALUES (
     'Joker',
     'R-18',
     68,
     8.5,
-    55000000
+    55000000,
+    'https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SY1000_CR0,0,674,1000_AL_.jpg'
   );
 
 INSERT INTO Movie (
@@ -35,14 +39,16 @@ INSERT INTO Movie (
     Rating,
     Tomato_score,
     IMDB_score,
-    World_Box
+    World_Box,
+    movie_image
   )
 VALUES (
     'Parasite',
     'R-12',
     99,
     8.6,
-    114000000
+    114000000,
+    'https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SY1000_CR0,0,674,1000_AL_.jpg'
   );
 
 INSERT INTO Movie (
@@ -50,14 +56,16 @@ INSERT INTO Movie (
     Rating,
     Tomato_score,
     IMDB_score,
-    World_Box
+    World_Box,
+    movie_image
   )
 VALUES (
     'Knives Out',
     'PG-13',
     97,
     7.9,
-    40000000
+    40000000,
+    'https://m.media-amazon.com/images/M/MV5BMGUwZjliMTAtNzAxZi00MWNiLWE2NzgtZGUxMGQxZjhhNDRiXkEyXkFqcGdeQXVyNjU1NzU3MzE@._V1_SY1000_SX675_AL_.jpg'
   );
 
 INSERT INTO Movie (
@@ -65,14 +73,16 @@ INSERT INTO Movie (
     Rating,
     Tomato_score,
     IMDB_score,
-    World_Box
+    World_Box,
+    movie_image
   )
 VALUES (
     'The Shawshank Redemption',
     'R',
     90,
     9.3,
-    25000000
+    25000000,
+    'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg'
   );
 
 INSERT INTO Director (DName, Sex, BDate)
