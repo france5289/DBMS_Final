@@ -32,8 +32,6 @@ def home():
             movie_dict1[item[0]] = item[-1]
         for item in result[4:8]:
             movie_dict2[item[0]] = item[-1]
-        print(movie_dict1)
-        print(movie_dict2)
     except IndexError as e:
         print(e)
         print('No data in Movie table')
