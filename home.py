@@ -38,3 +38,5 @@ def home():
         print(e)
         print('No data in Movie table')
     return render_template('w3_food_template.html', movie_list1=movie_dict1, movie_list2=movie_dict2)
+
+#TODO : Data Insertion Page
