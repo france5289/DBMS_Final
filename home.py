@@ -51,9 +51,15 @@ def searcher():
     Recieve user search keyword from homepage
     and display results
     '''
+    cur = mysql.connection.cursor()
     search_type = request.form['search_type']
+    key = request.form['keywords']
     if search_type == 'Movie_Name':
-        pass
+        cur.execute(f'SELECT * FROM Movie WHERE Movie_Name={key}')
+        result = cur.fetchone()
+        print(result)
+        #TODO : need to insert more data to complete ER model
+        #TODO : use keyword to get "any" info of movie!
     elif search_type == 'Director_Name':
         raise NotImplementedError('Have not implemented Director info search')
     elif search_type == 'Production_Comp_Name':
