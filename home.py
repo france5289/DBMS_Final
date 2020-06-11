@@ -37,4 +37,11 @@ def home():
         print('No data in Movie table')
     return render_template('w3_food_template.html', movie_list1=movie_dict1, movie_list2=movie_dict2)
 
+@app.route('/movie_manager', methods=['GET'])
+def movie_manager():
+    '''
+    Render movie manager page
+    it should provide a GUI to search any movie information
+    '''
+    return render_template('movie_manager.html')
 #TODO : Data Insertion Page
