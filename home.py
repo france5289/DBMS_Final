@@ -44,4 +44,23 @@ def movie_manager():
     it should provide a GUI to search any movie information
     '''
     return render_template('movie_manager.html')
-#TODO : Data Insertion Page
+
+@app.route('/Searcher', methods=['POST'])
+def searcher():
+    '''
+    Recieve user search keyword from homepage
+    and display results
+    '''
+    search_type = request.form['search_type']
+    if search_type == 'Movie_Name':
+        pass
+    elif search_type == 'Director_Name':
+        raise NotImplementedError('Have not implemented Director info search')
+    elif search_type == 'Production_Comp_Name':
+        raise NotImplementedError('Have not implemented Production info search')
+    elif search_type == 'UID':
+        raise NotImplementedError('Have not implemented User info search')
+    else:
+        raise ValueError('Invalid Search Type! (From searcher())')
+
+    return render_template()

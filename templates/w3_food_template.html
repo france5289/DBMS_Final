@@ -30,7 +30,22 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
   
 <!-- !PAGE CONTENT! -->
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
-
+  <div>
+    <h1>
+      What do you want to search ? 
+    </h1>
+    <form action='Searcher' method="POST">
+      <select name='search_type', id='search_type'>
+        <option value='Movie_Name'>Movie Name</option>
+        <option value='Director_Name'>Director Name</option>
+        <option value='Production_Comp_Name'>Production Company</option>
+        <option value='Platform_Name'>Platform Name</option>
+        <option value='UID'>User ID</option>
+      </select>
+      <input name='keywords'type='text' id='search_keywords' >
+      <input type="submit", value="Submit" formmethod="POST">
+    </form>
+  </div>
   <!-- First Photo Grid-->
   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
     {% for key, value in movie_list1.items() %}
