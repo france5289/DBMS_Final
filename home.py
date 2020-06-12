@@ -57,19 +57,43 @@ def searcher():
     cur = mysql.connection.cursor()
     search_type = request.form['search_type']
     key = request.form['keywords']
-    if search_type == 'Movie_Name':
-        cur.execute(f'SELECT * FROM Movie WHERE Movie_Name={key}')
-        result = cur.fetchone()
-        print(result)
-        #TODO : need to insert more data to complete ER model
-        #TODO : use keyword to get "any" info of movie!
-    elif search_type == 'Director_Name':
-        raise NotImplementedError('Have not implemented Director info search')
-    elif search_type == 'Production_Comp_Name':
-        raise NotImplementedError('Have not implemented Production info search')
-    elif search_type == 'UID':
-        raise NotImplementedError('Have not implemented User info search')
-    else:
-        raise ValueError('Invalid Search Type! (From searcher())')
-
-    return render_template('not_found.html')
+    print(key)
+    try:
+        if search_type == 'Movie_Name':
+            cur.execute(f"SELECT * FROM Movie WHERE Movie_Name='{key}'")
+            result = cur.fetchone()
+            movie_info = {'MName':result[0], 'Rating':result[1], 'Tomato':result[2],
+                        'IMDB':result[3], 'BOX':result[4], 'img':result[-1]}
+            cur.execute(f"SELECT count(Dislike.user_id) FROM Movie, Dislike WHERE Movie.Movie_name = Dislike.Mname and Movie.Movie_name='{key}'GROUP BY Movie.Movie_name")
+            dislike_count = cur.fetchone()
+            if dislike_count is not None:
+                dislike_count = dislike_count[0]
+            else:
+                dislike_count = 0
+            cur.execute(f"SELECT count(Love.user_id) FROM Movie, Love WHERE Movie.Movie_name = Love.Mname and Movie.Movie_name='{key}' GROUP BY Movie.Movie_name")
+            love_count = cur.fetchone()
+            if love_count is not None:
+                love_count = love_count[0]
+            else:
+                love_count = 0
+            cur.execute(f"SELECT Available.PNAME FROM Movie, Available WHERE Movie.Movie_name = Available.Mname and Movie.Movie_name='{key}'")
+            platforms = cur.fetchall()
+            plats = []
+            for item in platforms:
+                plats.append(item[0])
+            cur.execute(f"SELECT Produced.ProdName, Produced.DNAME FROM Movie, Produced WHERE Movie.Movie_name = Produced.MNAME and Movie.Movie_name='{key}'")
+            prod = cur.fetchall()
+            producer = prod[0][0]
+            director = prod[0][1]
+            return render_template('movie_result.html', result=movie_info, ndlike=dislike_count, lcount=love_count, plats=plats, producer=producer, director=director)
+        # elif search_type == 'Director_Name':
+        #     raise NotImplementedError('Have not implemented Director info search')
+        # elif search_type == 'Production_Comp_Name':
+        #     raise NotImplementedError('Have not implemented Production info search')
+        # elif search_type == 'UID':
+        #     raise NotImplementedError('Have not implemented User info search')
+        else:
+            raise ValueError('Invalid Search Type! (From searcher())')
+    except Exception as e:
+        print(e)
+        return render_template('not_found.html')
