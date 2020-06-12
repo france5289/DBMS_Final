@@ -52,5 +52,3 @@ DBMS final project : Movie forum
   - **SQL Update**
     - 更改 movie, user, platform, director, producer... 
 
-## Link to website
-140.116.245.105:6868
