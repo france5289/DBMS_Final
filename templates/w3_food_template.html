@@ -65,7 +65,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
     </div>
     {% endfor %}
   </div>
-
+  <!-- Third Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center">
+    {% for key, value in movie_list3.items() %}
+    <div class="w3-quarter">
+      <img src={{value|e}} alt="Movie_image" style="width:100%">
+      <h3>{{key|e}}</h3>
+    </div>
+    {% endfor %}
+  </div>
+  
   <!-- Pagination
   <div class="w3-center w3-padding-32">
     <div class="w3-bar">

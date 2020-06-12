@@ -25,17 +25,20 @@ def home():
     cur = mysql.connection.cursor()
     cur.execute('SELECT * FROM Movie')
     result = cur.fetchall()
-    movie_dict1 = dict() # first four
-    movie_dict2 = dict() # last four
+    movie_dict1 = dict() 
+    movie_dict2 = dict() 
+    movie_dict3 = dict() 
     try:
         for item in result[:4]:
             movie_dict1[item[0]] = item[-1]
         for item in result[4:8]:
             movie_dict2[item[0]] = item[-1]
+        for item in result[8:12]:
+            movie_dict3[item[0]] = item[-1]
     except IndexError as e:
         print(e)
         print('No data in Movie table')
-    return render_template('w3_food_template.html', movie_list1=movie_dict1, movie_list2=movie_dict2)
+    return render_template('w3_food_template.html', movie_list1=movie_dict1, movie_list2=movie_dict2, movie_list3=movie_dict3)
 
 @app.route('/movie_manager', methods=['GET'])
 def movie_manager():
