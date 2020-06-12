@@ -72,4 +72,4 @@ def searcher():
     else:
         raise ValueError('Invalid Search Type! (From searcher())')
 
-    return render_template('search_result.html')
+    return render_template('not_found.html')
