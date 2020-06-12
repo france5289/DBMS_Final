@@ -86,12 +86,6 @@ def searcher():
             producer = prod[0][0]
             director = prod[0][1]
             return render_template('movie_result.html', result=movie_info, ndlike=dislike_count, lcount=love_count, plats=plats, producer=producer, director=director)
-        # elif search_type == 'Director_Name':
-        #     raise NotImplementedError('Have not implemented Director info search')
-        # elif search_type == 'Production_Comp_Name':
-        #     raise NotImplementedError('Have not implemented Production info search')
-        # elif search_type == 'UID':
-        #     raise NotImplementedError('Have not implemented User info search')
         else:
             raise ValueError('Invalid Search Type! (From searcher())')
     except Exception as e:
