@@ -111,3 +111,38 @@ def searcher():
     except Exception as e:
         print(e)
         return render_template('not_found.html')
+
+@app.route('/Filter',methods=['POST'])
+def filter():
+    '''
+    Show top imdb score movie , top rotten tomato movie and movie with at least 3 love count
+    '''
+    cur = mysql.connection.cursor()
+    filter_type = request.form['Filter_type']
+    try:
+        if filter_type == 'First_IMDB':
+            cur.execute("SELECT Movie_Name, IMDB_score, Tomato_score, Movie_image FROM Movie WHERE IMDB_score = ( SELECT MAX(IMDB_score) From Movie )")
+            result = cur.fetchone()
+            movie_info = {'MName':result[0], 'IMDB':result[1], 'Tomato':result[2], 'Img':result[3]}
+            return render_template('filter_result.html', movie=movie_info)
+        elif filter_type == 'First_Tomato':
+            cur.execute("SELECT Movie_Name, IMDB_score, Tomato_score, Movie_image FROM Movie WHERE Tomato_score = ( SELECT MAX(Tomato_score) From Movie )")
+            result = cur.fetchone()
+            movie_info = {'MName':result[0], 'IMDB':result[1], 'Tomato':result[2], 'Img':result[3]}
+            return render_template('filter_result.html', movie=movie_info)
+        elif filter_type == 'Low_IMDB':
+            cur.execute("SELECT Movie_Name, IMDB_score, Tomato_score, Movie_image FROM Movie WHERE IMDB_score = ( SELECT MIN(IMDB_score) From Movie )")
+            result = cur.fetchone()
+            movie_info = {'MName':result[0], 'IMDB':result[1], 'Tomato':result[2], 'Img':result[3]}
+            return render_template('filter_result.html', movie=movie_info)
+        elif filter_type == 'Low_Tomato':
+            cur.execute("SELECT Movie_Name, IMDB_score, Tomato_score, Movie_image FROM Movie WHERE Tomato_score = ( SELECT MIN(Tomato_score) From Movie )")
+            result = cur.fetchone()
+            movie_info = {'MName':result[0], 'IMDB':result[1], 'Tomato':result[2], 'Img':result[3]}
+            return render_template('filter_result.html', movie=movie_info)
+        elif filter_type == 'Most_Rated':
+            pass
+
+    except Exception as e:
+        print(e)
+        return render_template('not_found.html')

@@ -40,7 +40,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
         <option value='UID'>User ID</option>
       </select>
       <input name='keywords'type='text' id='search_keywords' >
-      <input type="submit", value="Submit" formmethod="POST">
+      <input type="submit" value="Submit" formmethod="POST">
+    </form>
+    <h2>Filter</h2>
+    <form action="Filter" method="POST">
+      <select name="Filter_type", id='Filter_type'>
+        <option value='First_IMDB'>IMDB First Rated</option>
+        <option value="First_Tomato">Rotten Tomato First Rated</option>
+        <option value="Low_IMDB">IMDB Lowest Rated</option>
+        <option value="Low_Tomato">Rotten Tomato Lowest Rated</option>
+        <option value="Most_Rated">Mosted Rated by User</option>
+      </select>
+      <input type="submit" value="Filter" formmethod="POST">
     </form>
   </div>
   <!-- First Photo Grid-->
