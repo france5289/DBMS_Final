@@ -91,15 +91,13 @@ def insert_movie():
     cur = mysql.connection.cursor()
     try:
         pkey = request.form['Movie_Name']
-        print(pkey)
         var1 = request.form['Rating']
         var2 = request.form['Tomato_score']
         var3 = request.form['IMDB_score']
         var4 = request.form['Wolrd_Box']
         var5 = request.form['movie_image']
-        print('?')
         cur.execute(f"INSERT INTO Movie VALUES ('{pkey}', '{var1}', '{var2}', '{var3}', '{var4}', '{var5}')")
-        return redirect(url_for('movie_manager_GUI'))
+        return movie_manager_GUI()
     except Exception as e:
         print(e)
         return render_template('not_found.html')

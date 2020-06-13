@@ -32,38 +32,41 @@
         </div>
     </div>
     <!-- Page content -->
-    <div>
-        <!-- show movie image -->
-        <img src={{result['img']}},alt="Movie_image" class="img_center">
+    <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+        <div>
+            <!-- show movie image -->
+            <img src={{result['img']}},alt="Movie_image" class="img_center">
+        </div>
+        <div>
+            <!-- show movie info -->
+            <h1 style="text-align: center">{{result['MName']}}</h1>
+            <div>
+                <h2 style="text-align: center"><img src="https://img.icons8.com/color/80/000000/imdb.png"/>{{result['IMDB']}}<img src="https://img.icons8.com/doodle/80/000000/tomato--v1.png"/>{{result['Tomato']}}</h2>
+            </div>
+            <div>
+                <h2 style="text-align: center;">Available On: 
+                    {% for plat in plats %}
+                        {{plat}}
+                    {% endfor %}
+                </h2>
+            </div>
+            <div>
+                <h3 style="text-align: center;"><img src="https://img.icons8.com/dusk/32/000000/facebook-like.png"/>{{lcount}}<img src="https://img.icons8.com/dusk/32/000000/thumbs-down.png"/>{{ndlike}}</h3>
+            </div>
+            <div>
+                <h4 style="text-align: center;">Certificate: {{result['Rating']}}</h4>
+            </div>
+            <div>
+                <h4 style="text-align: center;">World Box: {{result['BOX']}} USD</h4>
+            </div>
+            <div>
+                <h4 style="text-align: center;">Director: {{director}}</h4>
+                <h4 style="text-align: center;">Producer: {{producer}} </h4>
+            </div>
+
+        </div>
     </div>
-    <div>
-        <!-- show movie info -->
-        <h1 style="text-align: center">{{result['MName']}}</h1>
-        <div>
-            <h2 style="text-align: center"><img src="https://img.icons8.com/color/80/000000/imdb.png"/>{{result['IMDB']}}<img src="https://img.icons8.com/doodle/80/000000/tomato--v1.png"/>{{result['Tomato']}}</h2>
-        </div>
-        <div>
-            <h2 style="text-align: center;">Available On: 
-                {% for plat in plats %}
-                    {{plat}}
-                {% endfor %}
-            </h2>
-        </div>
-        <div>
-            <h3 style="text-align: center;"><img src="https://img.icons8.com/dusk/32/000000/facebook-like.png"/>{{lcount}}<img src="https://img.icons8.com/dusk/32/000000/thumbs-down.png"/>{{ndlike}}</h3>
-        </div>
-        <div>
-            <h4 style="text-align: center;">Certificate: {{result['Rating']}}</h4>
-        </div>
-        <div>
-            <h4 style="text-align: center;">World Box: {{result['BOX']}} USD</h4>
-        </div>
-        <div>
-            <h4 style="text-align: center;">Director: {{director}}</h4>
-            <h4 style="text-align: center;">Producer: {{producer}} </h4>
-        </div>
         
-    </div>
 
 
 
