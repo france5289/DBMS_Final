@@ -1,4 +1,4 @@
-*.drawio
+
 .vscode
 DBMS_venv
 __pycache__
