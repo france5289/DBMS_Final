@@ -11,7 +11,6 @@ app.config['MYSQL_PASSWORD'] = 'Danielchen@27'
 app.config['MYSQL_DB'] = 'MovieForum'
 
 mysql = MySQL(app)
-
 @app.route('/', methods=['GET'])
 def index():
     return redirect(url_for('home'))
@@ -43,10 +42,67 @@ def home():
 @app.route('/data_manager', methods=['GET'])
 def data_manager():
     '''
-    Render movie manager page
-    it should provide a GUI to search any movie information
+    Render data manager page
     '''
     return render_template('data_manager.html')
+
+@app.route('/sql_playground', methods=['GET', 'POST'])
+def sql_playground():
+    '''
+    handle sql INSERT UPDATE DELETE
+    '''
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT * FROM Movie')
+    result = cur.fetchall()
+    movies = []
+    for item in result:
+        movies.append(list(item))
+    return render_template('sql_playground.html', data=movies)
+
+@app.route('/sql_query', methods=['POST'])
+def sql_query():
+    '''
+    handle sql query
+    '''
+    cur = mysql.connection.cursor()
+    query = request.form['SQL']
+    print(query)
+    cur.execute(f"{query}")
+    return sql_playground()
+
+@app.route('/movie_manager_GUI', methods=['GET','POST'])
+def movie_manager_GUI():
+    '''
+    Render Movie entity manager GUI
+    '''
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT * FROM Movie')
+    result = cur.fetchall()
+    movies = []
+    for item in result:
+        movies.append(list(item))
+    return render_template('movie_manager_GUI.html', data=movies)
+
+@app.route('/insert_movie', methods=['GET','POST'])
+def insert_movie():
+    '''
+    insert new data to movie table and render movie_magager_GUI.html
+    '''
+    cur = mysql.connection.cursor()
+    try:
+        pkey = request.form['Movie_Name']
+        print(pkey)
+        var1 = request.form['Rating']
+        var2 = request.form['Tomato_score']
+        var3 = request.form['IMDB_score']
+        var4 = request.form['Wolrd_Box']
+        var5 = request.form['movie_image']
+        print('?')
+        cur.execute(f"INSERT INTO Movie VALUES ('{pkey}', '{var1}', '{var2}', '{var3}', '{var4}', '{var5}')")
+        return redirect(url_for('movie_manager_GUI'))
+    except Exception as e:
+        print(e)
+        return render_template('not_found.html')
 
 @app.route('/Searcher', methods=['POST'])
 def searcher():
