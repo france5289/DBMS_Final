@@ -38,7 +38,7 @@ def home():
     except IndexError as e:
         print(e)
         print('No data in Movie table')
-    return render_template('w3_food_template.html', movie_list1=movie_dict1, movie_list2=movie_dict2, movie_list3=movie_dict3)
+    return render_template('home.html', movie_list1=movie_dict1, movie_list2=movie_dict2, movie_list3=movie_dict3)
 
 @app.route('/movie_manager', methods=['GET'])
 def movie_manager():
