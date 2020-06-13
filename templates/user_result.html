@@ -9,6 +9,9 @@
     <style>
     body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
     .w3-bar-block .w3-bar-item {padding:20px}
+    .user_div {
+        position:absolute; top:20%; left:46%;
+    } 
     .img_center {
         display: block;
         margin-left: auto;
@@ -32,6 +35,36 @@
         </div>
     </div>
     <!-- Page content -->
+    <div class="user_div">
+        <div>
+            {% if user['Sex'] == 'Male' %}
+                <img src="https://img.icons8.com/bubbles/50/000000/about-me-male.png" class="img_center"/>
+            {% else %}
+            <img src="https://img.icons8.com/doodle/48/000000/user-female-circle.png" class="img_center"/>
+            {% endif %}
+        </div>
+        <div>
+            <h2 style="text-align: center;">{{user['id']}}</h2>
+            <h2 style="text-align: center;">{{user['BDate']}}</h2>
+        </div>
+        <div>
+            <h3 style="text-align: center;">Favorite Movies</h3>
+            <ul style="text-align: left;">
+                {% for movie in fav %}
+                <li>{{movie|e}}</li>
+                {% endfor %}
+            </ul>
+            <h3 style="text-align: center;">Least Favorite Movies</h3>
+            <ul style="text-align: left;">
+                {% for movie in dis %}
+                <li>{{movie|e}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    
+    
+
     <!-- script to control side bar -->
     <script>
         // Script to open and close sidebar

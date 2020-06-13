@@ -86,6 +86,26 @@ def searcher():
             producer = prod[0][0]
             director = prod[0][1]
             return render_template('movie_result.html', result=movie_info, ndlike=dislike_count, lcount=love_count, plats=plats, producer=producer, director=director)
+        elif search_type == 'UID':
+            # get user basic info from User table
+            cur.execute(f"SELECT * FROM User WHERE User.id='{key}'")
+            result = cur.fetchone()
+            user_info = {'id':result[0], 'BDate':result[1], 'Sex':result[-1]}
+            # get user favorite music
+            sub_query = f"SELECT * FROM User U, Love L WHERE U.id = L.user_id and M.Movie_Name = L.Mname and U.id = '{key}'"
+            cur.execute(f"SELECT M.Movie_Name FROM Movie M WHERE EXISTS ({sub_query})")
+            result = cur.fetchall()
+            fav_movie = []
+            for item in result:
+                fav_movie.append(item[0])
+            sub_query = f"SELECT * FROM User U, Dislike D WHERE U.id = D.user_id and M.Movie_Name = D.Mname and U.id = '{key}'"
+            cur.execute(f"SELECT M.Movie_Name FROM Movie M WHERE EXISTS ({sub_query})")
+            result = cur.fetchall()
+            dislike_movie = []
+            for item in result:
+                dislike_movie.append(item[0])
+            
+            return render_template('user_result.html', user=user_info, fav=fav_movie, dis=dislike_movie)
         else:
             raise ValueError('Invalid Search Type! (From searcher())')
     except Exception as e:
