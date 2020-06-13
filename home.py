@@ -40,13 +40,13 @@ def home():
         print('No data in Movie table')
     return render_template('home.html', movie_list1=movie_dict1, movie_list2=movie_dict2, movie_list3=movie_dict3)
 
-@app.route('/movie_manager', methods=['GET'])
-def movie_manager():
+@app.route('/data_manager', methods=['GET'])
+def data_manager():
     '''
     Render movie manager page
     it should provide a GUI to search any movie information
     '''
-    return render_template('movie_manager.html')
+    return render_template('data_manager.html')
 
 @app.route('/Searcher', methods=['POST'])
 def searcher():
@@ -150,3 +150,6 @@ def filter():
     except Exception as e:
         print(e)
         return render_template('not_found.html')
+
+
+
