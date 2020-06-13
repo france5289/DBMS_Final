@@ -141,8 +141,12 @@ def filter():
             movie_info = {'MName':result[0], 'IMDB':result[1], 'Tomato':result[2], 'Img':result[3]}
             return render_template('filter_result.html', movie=movie_info)
         elif filter_type == 'Most_Rated':
-            pass
-
+            cur.execute("SELECT Movie_Name, Movie_image, count(Love.user_id) FROM Movie, Love WHERE Movie.Movie_name = Love.Mname GROUP BY Movie.Movie_name HAVING count(Love.user_id) > 2;")
+            result = cur.fetchall()
+            movie_list = []
+            for item in result:
+                movie_list.append({'Mname':item[0], 'img':item[1], 'count':item[2]})
+            return render_template('filter_result_user_rated.html', movies=movie_list)    
     except Exception as e:
         print(e)
         return render_template('not_found.html')
