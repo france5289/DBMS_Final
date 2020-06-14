@@ -111,7 +111,9 @@
   - 前往 `GUI` 介面
 - SQL interface for Movie Entity
   - 前往 `SQL` 介面
-
+### GUI 操作介面
+輸入欄位資訊按下送出鍵後，則會更新 `Movie` table 內的資料並顯示 
+![GUI](img/GUI.png)
 ### SQL 操作介面
 輸入 `SQL` 語法按下送出後，則會更新 `Movie` table 內的資料並顯示 
 #### Before
