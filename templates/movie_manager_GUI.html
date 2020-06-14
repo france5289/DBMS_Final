@@ -46,19 +46,19 @@
             <form>
                 <label for="Movie_Name">Movie name:</label>
                 <input type="text" id="Movie_Name" name="Movie_Name" required><br><br>
-                <label for="Rating">Rating:</label>
-                <input type="text" id="Rating" name="Rating" required><br><br>
+                <label for="Rating">Certificate:</label>
+                <input type="text" id="Rating" name="Rating" value=""><br><br>
                 <label for="Tomato_score">Tomato score:</label>
-                <input type="text" id="Tomato_score" name="Tomato_score" required><br><br>
+                <input type="text" id="Tomato_score" name="Tomato_score" value=""><br><br>
                 <label for="IMDB_score">IMDB_score:</label>
-                <input type="text" id="IMDB_score" name="IMDB_score" required><br><br>
+                <input type="text" id="IMDB_score" name="IMDB_score" value=""><br><br>
                 <label for="World_Box">World Box:</label>
-                <input type="text" id="World_Box" name="World_Box" required><br><br>
+                <input type="text" id="World_Box" name="World_Box" value=""><br><br>
                 <label for="movie_image">Movie Image Link</label>
-                <input type="text" id="movie_image" name="movie_image" required><br><br>
-                <input type="submit" value="Insert New Data" formmethod="POST", formaction="insert_movie">
-                <input type="submit" value="Modify Existed Data" formmethod="POST">
-                <input type="submit" value="Delete Existed Data" formmethod="POST">
+                <input type="text" id="movie_image" name="movie_image" value=""><br><br>
+                <input type="submit" value="Insert New Data" formmethod="POST" formaction="insert_movie">
+                <input type="submit" value="Modify Existed Data" formmethod="POST" formaction="update_movie">
+                <input type="submit" value="Delete Existed Data" formmethod="POST" formaction="delete_movie">
             </form>
         </div>
         <!-- List all data at movie table -->
